@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participantes</title>
+</head>
+
+<body>
+    <div class="main">
+        <details>
+            <summary>Lista de Participantes</summary>
+            <table>
+                <tr>
+                    <td>id</td>
+                    <td>name</td>
+                    <td>email</td>
+                    <td>4 letras</td>
+                </tr>
+                <tr th:each="participant : ${pessoas}">
+                    <td th:text="${participant.id}"></td>
+                    <td th:text="${participant.name}"></td>
+                    <td th:text="${participant.email}"></td>
+                    <td th:text="${participant.four_letters}"></td>
+                </tr>
+            </table>
+        </details>
+    </div>
+
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        background-color: #fff;
+        font-family: sans-serif;
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .main {
+        margin-top: 7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    summary {
+        font-size: large;
+    }
+
+    table {
+        background-color: #333;
+        width: 60vw;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        color: rgb(255, 255, 255);
+    }
+</style>
+
+</html>
