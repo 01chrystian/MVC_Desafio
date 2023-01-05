@@ -29,17 +29,17 @@ public class Participant implements Serializable {
 	private String name;
 	private String email;
 	private String four_letters;
-		
+
 	@ManyToOne
 	@JsonIgnore
 	@JoinColumn(name = "group_id")
 	private Group group;
-	
+
 	@ManyToMany
 	@JsonIgnore
 	@JoinTable(name = "tb_event_participant", joinColumns = @JoinColumn(name = "event_id"), inverseJoinColumns = @JoinColumn(name = "participant_id"))
 	private Set<Event> events = new HashSet<>();
-	
+
 	public Participant() {
 
 	}
@@ -92,7 +92,7 @@ public class Participant implements Serializable {
 	public void setGroup(Group group) {
 		this.group = group;
 	}
-	
+
 	public Set<Event> getEvents() {
 		return events;
 	}
@@ -113,5 +113,6 @@ public class Participant implements Serializable {
 		Participant other = (Participant) obj;
 		return Objects.equals(id, other.id);
 	}
+	
 
 }

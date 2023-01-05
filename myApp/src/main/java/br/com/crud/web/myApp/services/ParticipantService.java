@@ -25,7 +25,18 @@ public class ParticipantService {
 	}
 
 	public String save(Participant participant) {
-		Participant obj = repository.save(participant);
-		return obj.getName();
+		repository.save(participant);
+		return "Participante salvo!";
 	}
+
+	public String remove(String email) {
+		List<Participant> obj = repository.findAll();
+		for (Participant p : obj) {
+			if (p.getEmail().equals(email)) {
+				repository.delete(p);
+			}
+		}
+		return "Participante removido!";
+	}
+
 }
